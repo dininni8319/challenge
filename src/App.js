@@ -10,7 +10,7 @@ const App = () => {
   const [ searchedItemList, setSearchedItemList ] = useState([]);
    
   let firstElementArray = searchedItemList[0]
-  // console.log(firstElementArray.id, 'the first');
+  
   const api_url = process.env.REACT_APP_MOVIES_API_URL_CURRENT;
   const api_key = process.env.REACT_APP_MOVIES_SECRET;
   

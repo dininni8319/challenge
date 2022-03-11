@@ -24,15 +24,21 @@
 .section-searched-card-list {
   display: flex;
 }
+
+.section-icon-chevron {
+  display: flex;
+}
 .icon-color-1 {
   color: #e5383b;
 }
 
 .icon-color-2 {
   color: rgb(29, 179, 29);
+  text-align: center;
 }
 
 .icon-color-red {
   color: red;
   padding-top: 4px;
+  
 }

@@ -58,4 +58,6 @@ h3 {
 p {
   font-size: small;
   color: #585756;
+  text-transform: capitalize;
+  padding-bottom: 1px;
 }

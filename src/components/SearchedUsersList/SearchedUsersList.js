@@ -23,11 +23,13 @@ const SearchedUsersList = ({ firstElementArray, searchedItemList, handleDelete }
                   return (
 
                       <section key={el.id}  className='section-searched-list'>
-                             
-                        { 
-                        firstElementArray.id !== el.id && <FontAwesomeIcon icon={!cardVisible ? faChevronDown : faChevronUp } className={`fa-1x ${ cardVisible && detail === el.id ? "icon-color-1" : "icon-color-2"}`} onClick={() => handleDetail(el.id)}/>
+                         <section className='section-icon-chevron'>
+                            { 
+                            firstElementArray.id !== el.id && <FontAwesomeIcon icon={!cardVisible ? faChevronDown : faChevronUp } className={`fa-1x ${ cardVisible && detail === el.id ? "icon-color-1" : "icon-color-2"}`} onClick={() => handleDetail(el.id)}/>
+                            
+                            }   
+                        </section>  
                         
-                        }
                             {
                                 detail === el.id && cardVisible || firstElementArray.id === el.id ? (
                                     <section className='section-searched-card-list'>
@@ -39,15 +41,15 @@ const SearchedUsersList = ({ firstElementArray, searchedItemList, handleDelete }
                                         </div>
                                         <div className="section-user-detail">
                                             <h3>{el.name}</h3>
-                                            <p>{el.known_for_department} <span>{el.popularity}</span></p>
-             
-                                             <FontAwesomeIcon icon={faTrashCan} className={`fa-1x icon-color-red`} onClick={() => handleDelete(el.id)}/>
+                                            <p>Profession: {el.known_for_department}</p>
+                                            <p>Popularity: {el.popularity}</p>
 
+                                             <FontAwesomeIcon icon={faTrashCan} className={`fa-1x icon-color-red`} onClick={() => handleDelete(el.id)}/>
                                         </div>
                                     </section>
                                 ) : null
                             }
-                      </section>
+                        </section>
                   )
               })  
             }

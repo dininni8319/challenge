@@ -1,5 +1,6 @@
 import style from './List.css';
 import avatarImg from './../assests/smile-img.png'
+
 const List = ({ autoCompleteList, handleSearchedItemOverd }) => {
     
   return (
