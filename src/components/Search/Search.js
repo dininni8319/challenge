@@ -1,7 +1,7 @@
 import List from './../../components/List/List';
 import SearchedUsersList from './../../components/SearchedUsersList/SearchedUsersList';
 
-const Search = ({ handleSearchedItem, autoCompleteList, handleSearchedItemOverd, handleDelete, searchedItemList }) => {
+const Search = ({ firstElementArray, handleSearchedItem, autoCompleteList, handleSearchedItemOverd, handleDelete, searchedItemList }) => {
 
     return (
         <form action="" className='form-search'>
@@ -19,6 +19,7 @@ const Search = ({ handleSearchedItem, autoCompleteList, handleSearchedItemOverd,
                 <SearchedUsersList 
                     searchedItemList={searchedItemList}
                     handleDelete={handleDelete}
+                    firstElementArray={firstElementArray}
                 />
               </div>
         </form> 

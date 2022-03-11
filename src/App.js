@@ -8,7 +8,9 @@ const App = () => {
 
   const [ autoCompleteList, setAutoCompleteList ] = useState([]);
   const [ searchedItemList, setSearchedItemList ] = useState([]);
-
+   
+  let firstElementArray = searchedItemList[0]
+  // console.log(firstElementArray.id, 'the first');
   const api_url = process.env.REACT_APP_MOVIES_API_URL_CURRENT;
   const api_key = process.env.REACT_APP_MOVIES_SECRET;
   
@@ -47,14 +49,9 @@ const App = () => {
               handleSearchedItemOverd={handleSearchedItemOverd}
               searchedItemList={searchedItemList}
               handleDelete={handleDelete}
+              firstElementArray={firstElementArray}
             />
-            <Search 
-              handleSearchedItem={handleSearchedItem}
-              autoCompleteList={autoCompleteList}
-              handleSearchedItemOverd={handleSearchedItemOverd}
-              searchedItemList={searchedItemList}
-              handleDelete={handleDelete}
-            />
+          
         </div>
     </div>
   );

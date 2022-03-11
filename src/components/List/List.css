@@ -1,5 +1,9 @@
+.suggestions-cards-section {
+   position: absolute; 
+   left: 35.2%; 
+}
 .suggestions-cards {
-    position: relative;
+   
     width: 20rem;
     background-color: white;
     display: flex;
