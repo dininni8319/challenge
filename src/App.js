@@ -1,23 +1,60 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import Search from './components/Search/Search';
 
-function App() {
+const App = () => {
+  const [ searched, setSearched] = useState('');
+
+  const [ autoCompleteList, setAutoCompleteList ] = useState([]);
+  const [ searchedItemList, setSearchedItemList ] = useState([]);
+  console.log(searchedItemList);
+  const api_url = process.env.REACT_APP_MOVIES_API_URL_CURRENT;
+  const api_key = process.env.REACT_APP_MOVIES_SECRET;
+  
+  const handleSearchedItemOverd = (id) => {
+    let searchedItem = autoCompleteList.filter(el => el.id === id)
+    
+    let unique = searchedItemList.some(el => el.id === id)
+    if (!unique) {
+      setSearchedItemList(searchedItemList?.concat(searchedItem))
+      setAutoCompleteList([])
+    }
+  }
+
+  const handleDelete = (id) => {
+      let deleteItem = searchedItemList.filter(el => el.id !== id)
+      setSearchedItemList(deleteItem)
+  } 
+
+  const handleSearchedItem = (e) => {
+    e.preventDefault()
+    setSearched(e.target.value)
+  }
+  
+  useEffect(() => {
+    fetch(`${api_url}${api_key}&query=${searched}`)
+      .then(response => response.json())
+      .then(data => setAutoCompleteList(data.results))
+  },[searched])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-search-form">
+        <div className="row-search-form">
+            <Search 
+              handleSearchedItem={handleSearchedItem}
+              autoCompleteList={autoCompleteList}
+              handleSearchedItemOverd={handleSearchedItemOverd}
+              searchedItemList={searchedItemList}
+              handleDelete={handleDelete}
+            />
+            <Search 
+              handleSearchedItem={handleSearchedItem}
+              autoCompleteList={autoCompleteList}
+              handleSearchedItemOverd={handleSearchedItemOverd}
+              searchedItemList={searchedItemList}
+              handleDelete={handleDelete}
+            />
+        </div>
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.suggestions-cards {
+    position: relative;
+    width: 18rem;
+    background-color: white;
+    display: flex;
+    align-items: start;
+}
+
+.suggestion-users-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    padding-left: 5px;
+}
+
+.suggestions-card-title {
+    padding-left: 5px;
+}
