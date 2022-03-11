@@ -3,11 +3,12 @@ import './App.css';
 import Search from './components/Search/Search';
 
 const App = () => {
+
   const [ searched, setSearched] = useState('');
 
   const [ autoCompleteList, setAutoCompleteList ] = useState([]);
   const [ searchedItemList, setSearchedItemList ] = useState([]);
-  console.log(searchedItemList);
+
   const api_url = process.env.REACT_APP_MOVIES_API_URL_CURRENT;
   const api_key = process.env.REACT_APP_MOVIES_SECRET;
   
@@ -16,13 +17,13 @@ const App = () => {
     
     let unique = searchedItemList.some(el => el.id === id)
     if (!unique) {
-      setSearchedItemList(searchedItemList?.concat(searchedItem))
+      setSearchedItemList(searchedItem?.concat(searchedItemList))
       setAutoCompleteList([])
     }
   }
 
   const handleDelete = (id) => {
-      let deleteItem = searchedItemList.filter(el => el.id !== id)
+    let deleteItem = searchedItemList.filter(el => el.id !== id)
       setSearchedItemList(deleteItem)
   } 
 

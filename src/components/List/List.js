@@ -1,11 +1,12 @@
 import style from './List.css';
 
 const List = ({ autoCompleteList, handleSearchedItemOverd }) => {
-    return (
+    
+  return (
        <>
           {
             autoCompleteList?.slice(0,6).map(el => {
-              
+
                 return (
                   <section className='suggestions-card' onClick={() => handleSearchedItemOverd(el.id)} key={el.id} className='suggestions-cards'> 
                     <div>

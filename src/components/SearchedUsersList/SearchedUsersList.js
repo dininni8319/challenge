@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import style from './SearchedUsersList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCircleArrowDown , faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
+import {faChevronDown, faChevronUp, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 const SearchedUsersList = ({ searchedItemList, handleDelete }) => {
 
@@ -14,7 +14,7 @@ const SearchedUsersList = ({ searchedItemList, handleDelete }) => {
         setDetail(id)
         setVisibleCard(!cardVisible)
     }
-    
+
     return (
         <> 
             {
@@ -23,7 +23,7 @@ const SearchedUsersList = ({ searchedItemList, handleDelete }) => {
 
                       <section key={el.id}  className='section-searched-list'>
                              
-                          <FontAwesomeIcon icon={!cardVisible ? faCircleArrowDown : faCircleArrowUp } className={`fa-1x`} onClick={() => handleDetail(el.id)}/>
+                          <FontAwesomeIcon icon={!cardVisible ? faChevronDown : faChevronUp } className={`fa-1x ${ cardVisible && detail === el.id ? "icon-color-1" : "icon-color-2"}`} onClick={() => handleDetail(el.id)}/>
                            
                             {
                                 detail === el.id && cardVisible && (
@@ -37,8 +37,9 @@ const SearchedUsersList = ({ searchedItemList, handleDelete }) => {
                                         <div className="section-user-detail">
                                             <h3>{el.name}</h3>
                                             <p>{el.known_for_department} <span>{el.popularity}</span></p>
-                                             <button onClick={() => handleDelete(el.id)} className='btn-delete'>
-                                             Delete</button> 
+             
+                                             <FontAwesomeIcon icon={faTrashCan} className={`fa-1x icon-color-red`} onClick={() => handleDelete(el.id)}/>
+
                                         </div>
                                     </section>
                                 )

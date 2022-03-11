@@ -6,7 +6,7 @@ const Search = ({ handleSearchedItem, autoCompleteList, handleSearchedItemOverd,
     return (
         <form action="" className='form-search'>
               <div className="section-search-input">
-                <input type="search" placeholder="Search a Github User" className='input-search' onChange={handleSearchedItem}/>
+                <input type="search" placeholder="Search for a person/cast" className='input-search' onChange={handleSearchedItem}/>
                   
               </div>
               <div className='section-cards'>

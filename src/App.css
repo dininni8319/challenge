@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300;500&display=swap');
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -43,18 +43,19 @@ p, h3 {
 
 .input-search {
   border: none;
-  width: 18rem;
+  width: 20rem;
   outline: none;
   padding: 20px 5px;
   margin-top: 10px;
 }
 
 h3 {
-  color: darkorange;
+  color: #fca311;
   padding-bottom: 5px;
   font-size: medium;
 }
 
 p {
   font-size: small;
+  color: #585756;
 }
